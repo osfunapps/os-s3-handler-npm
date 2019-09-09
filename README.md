@@ -7,7 +7,7 @@ This module meant to provide intuitive functions to work with AWS's S3.
 
 NOTICE:  
 in order to make it work, you would need to install [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
-and run * aws configure * to configure your profile.
+and run *aws configure* to configure your profile.
 
 Install via npm:
     
