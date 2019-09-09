@@ -16,27 +16,40 @@ Require fsh:
 
 ## Functions and signatures:
     
-    /**
-     * Will download files with to the same extension from an S3 path.
+     /**
+     * Will download all of the files with to the same extension from an S3 path.
      *
      * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
      * @param destPath -> the path to which the files will be downloaded
      * @param extension -> the extension you wish to look for
+     * @param lookInSubDirsAlso -> set to true if you want to download from sub dirs as well
      * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
      * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
      */
-    async downloadAllByExtension(s3LocalPath, destPath, extension, timeout)
+    async downloadAllByExtension(s3LocalPath, destPath, extension, lookInSubDirsAlso, timeout)
 
     /**
-     * Will download a file from S3. If you don't know the path just leave blank.
+     * Will download a file from an S3 path.
      *
      * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
      * @param destPath -> the path to which the files will be downloaded
-     * @param fileNameWithExtension -> the name of the file, carrying the file extension
+     * @param fileName -> the file name incl the extension you wish to look for
      * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
-     * TO SET THIS FIELD AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
+     * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
      */
-    async downloadFile(s3LocalPath, destPath, fileNameWithExtension, timeout)
+    async downloadFile(s3LocalPath, destPath, fileName, timeout) 
+
+    /**
+     * Will run an ls command in a given path destination
+     *
+     * @param bucketName -> the name of your bucket
+     * @param s3LocalPath -> the local path to the destination (for root leave as is)
+     * @param listFiles -> set to true if you want to get the files
+     * @param listDirs -> set to true if you want to get the dirs
+     * @return array -> of
+     */
+    async listFilesAndDirs(bucketName, s3LocalPath = "", listFiles=true, listDirs=true)
+    
 And more...
 
 
