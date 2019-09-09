@@ -72,10 +72,10 @@ const self = module.exports = {
      */
     async listFilesAndDirs(bucketName, s3LocalPath = "", listFiles=true, listDirs=true) {
         return new Promise(async function (resolve, reject) {
-            if(s3LocalPath.startsWith('/')) s3LocalPath = s3LocalPath.substring(1);
-            if(!s3LocalPath.endsWith('/')) s3LocalPath += '/';
-
-            let full_command = CMD_PREFIX + ' ' + LS_CMD + " " + CMD_PATH_PREFIX + "/" + bucketName + "/" + s3LocalPath + " " + "--human-readable --summarize";
+            let fullPath = tools.joinPath(bucketName, s3LocalPath)
+            if(fullPath.startsWith('/')) fullPath = fullPath.substring(1);
+            if(!fullPath.endsWith('/')) fullPath += '/';
+            let full_command = CMD_PREFIX + ' ' + LS_CMD + " " + CMD_PATH_PREFIX + "/" + tools.toStringRepresenation(fullPath) + " " + "--human-readable --summarize";
             let dirs = [];
             let files = {};
             let pattern = /[^ ]+/g;
