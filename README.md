@@ -10,51 +10,51 @@ in order to make it work, you would need to install [aws-cli](https://docs.aws.a
 and run *aws configure* to configure your profile.
 
 Install via npm:
-    
-    npm i os-s3-handler
-
+```js    
+npm i os-s3-handler
+```
 
 ## Usage       
 Require fsh:
-        
-    var s3h = require("os-s3-handler")
-
+```js
+var s3h = require("os-s3-handler")
+```
 ## Functions and signatures:
-    
-     /**
-     * Will download all of the files with to the same extension from an S3 path.
-     *
-     * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
-     * @param destPath -> the path to which the files will be downloaded
-     * @param extension -> the extension you wish to look for
-     * @param lookInSubDirsAlso -> set to true if you want to download from sub dirs as well
-     * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
-     * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
-     */
-    async downloadAllByExtension(s3LocalPath, destPath, extension, lookInSubDirsAlso, timeout)
+```js    
+ /**
+ * Will download all of the files with to the same extension from an S3 path.
+ *
+ * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
+ * @param destPath -> the path to which the files will be downloaded
+ * @param extension -> the extension you wish to look for
+ * @param lookInSubDirsAlso -> set to true if you want to download from sub dirs as well
+ * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
+ * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
+ */
+async downloadAllByExtension(s3LocalPath, destPath, extension, lookInSubDirsAlso, timeout)
 
-    /**
-     * Will download a file from an S3 path.
-     *
-     * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
-     * @param destPath -> the path to which the files will be downloaded
-     * @param fileName -> the file name incl the extension you wish to look for
-     * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
-     * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
-     */
-    async downloadFile(s3LocalPath, destPath, fileName, timeout) 
+/**
+ * Will download a file from an S3 path.
+ *
+ * @param s3LocalPath -> the local path of the files in the bucket (/remotes/Samsung)
+ * @param destPath -> the path to which the files will be downloaded
+ * @param fileName -> the file name incl the extension you wish to look for
+ * @param timeout -> how long to wait for the download to complete. NOTICE: IT'S IMPERATIVE
+ * TO SET THIS ARG AS THE SHITTY S3 CLI DOESN'T INFORM WHEN IT IS DONE DOWNLOADING FILES.
+ */
+async downloadFile(s3LocalPath, destPath, fileName, timeout) 
 
-    /**
-     * Will run an ls command in a given path destination
-     *
-     * @param bucketName -> the name of your bucket
-     * @param s3LocalPath -> the local path to the destination (for root leave as is)
-     * @param listFiles -> set to true if you want to get the files
-     * @param listDirs -> set to true if you want to get the dirs
-     * @return array -> of
-     */
-    async listFilesAndDirs(bucketName, s3LocalPath = "", listFiles=true, listDirs=true)
-    
+/**
+ * Will run an ls command in a given path destination
+ *
+ * @param bucketName -> the name of your bucket
+ * @param s3LocalPath -> the local path to the destination (for root leave as is)
+ * @param listFiles -> set to true if you want to get the files
+ * @param listDirs -> set to true if you want to get the dirs
+ * @return array -> of
+ */
+async listFilesAndDirs(bucketName, s3LocalPath = "", listFiles=true, listDirs=true)
+```  
 And more...
 
 
